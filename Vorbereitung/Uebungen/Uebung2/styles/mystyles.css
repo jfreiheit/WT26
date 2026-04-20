@@ -1,0 +1,143 @@
+:root {
+  --htw-gruen: #76B900;
+  --htw-blau: #0082D1;
+  --htw-grau: #AFAFAF;
+  --htw-orange: #FF5F00;
+  --htw-hellgruen: #f9fcf4;
+  --htw-mittelgruen: #edf5df;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+header {
+  background-color: var(--htw-grau);
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  width: 3rem;
+  margin: 1rem;
+}
+
+header span {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+#index {
+  background-color: var(--htw-hellgruen);
+  padding: 1rem;
+  display: flex;
+  flex: 1;
+}
+
+#plan {
+  background-color: var(--htw-hellgruen);
+  padding: 1rem;
+  flex: 1;
+}
+
+#index section:last-child {
+  margin-left: auto;
+  background-color: var(--htw-mittelgruen)
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px; 
+  padding: 5px;
+  text-align: center;
+
+  a:link, a:visited, a:active {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+h1 {
+    color: var(--htw-blau);
+}
+h2 {
+  margin-left: 1rem;
+  margin-top: 3rem;
+}
+
+ul li:hover {
+  background-color: var(--htw-mittelgruen);
+  border: 2px solid #76B900;
+  color: #76B900;
+  font-weight: bold;
+
+  a:link, a:visited, a:active, a:hover {
+    color: #76B900;
+  }
+}
+
+.back-button {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: var(--htw-blau);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.back-button:hover {
+  background-color: var(--htw-gruen);
+}
+
+article a img {
+  width: 5rem;
+  padding: 3rem;
+}
+
+footer {
+  background-color: var(--htw-orange);
+  text-align: center;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  thead tr {
+    background-color: var(--htw-gruen);
+    color: #ffffff;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 12px 15px;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  }
+
+  tr:hover, tr:hover:nth-of-type(even) {
+    background-color: #c6c4c4;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+}
