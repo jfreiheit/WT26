@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Einführung - Lerne die Grundlagen</title>
-    <!-- 
-    <link rel="stylesheet" href="css/style.css"> 
-    -->
+    <link id="stylesheet" rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
     <header>
         <h1>Willkommen zur HTML-Einführung</h1>
         <p>HTML enthält alle Inhalte</p>
+        <input id="cssToggle" type="checkbox" checked onchange="toggleCSS(this)"/>
+        <label id="cssLabel" for="cssToggle">mit CSS</label>
     </header>
 
     <nav>
@@ -58,7 +58,7 @@
 
             <h3>Ein Bild einbinden</h3>
             <p>Bilder benötigen ein <code>src</code> (Quelle) und ein <code>alt</code> (Alternative für Screenreader) Attribut.</p>
-            <img src="../../../Bilder/htw.jpg" alt="Beispielbild">
+            <img src="../images/htw.jpg" alt="Beispielbild">
         </section>
 
         <section id="tabellen">
@@ -140,7 +140,7 @@
                 <div>
                   <label>Lieblingssprache:</label><br>
                   <input type="radio" id="html" name="fav" value="HTML"> <label for="html">HTML</label><br>
-                  <input type="radio" id="css" name="fav" value="CSS"> <label for="css">CSS</label><br><br>
+                  <input type="radio" id="radio-css" name="fav" value="CSS"> <label for="radio-css">CSS</label><br><br>
                 </div>
 
                 <button type="button" onclick="alert('HTML ist super!')">Abschicken</button>
@@ -173,6 +173,15 @@
             </dialog>
         </section>
     </main>
+
+    <script>
+        function toggleCSS(checkbox) {
+            const link = document.getElementById('stylesheet');
+            const label = document.getElementById('cssLabel');
+            link.disabled = !checkbox.checked;
+            label.textContent = checkbox.checked ? 'mit CSS' : 'ohne CSS';
+        }
+    </script>
 
     <footer>
         <p>&copy; 2026 - WebTech - HTML-Einführung</p>

@@ -5,7 +5,31 @@
 		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <title>Cascading</title>
-		    
+				<link rel="stylesheet" href="./styles/mystyles.css" />
+		    <style>
+					main {
+						color: red;
+					}
+					 section>p {
+						color: green;
+					}
+
+					.blaueSchrift {
+						color: blue;
+					}
+
+					.roterHintergrund {
+						background-color: red;
+					}
+
+					#section2 {
+						background-color: rgb(185, 218, 166)
+					}
+
+					ul>li {
+						background-color: rgb(131, 131, 72)
+					}
+				</style>
 		</head>
 		<body>
 		    <header>
@@ -13,9 +37,9 @@
 		    </header>
 		    <main>
 		        <section>
-		            <h2>Section 1</h2>
+		            <h2 class="blaueSchrift roterHintergrund">Section 1</h2>
 		            <article>
-		                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+		                <p>Lorem ipsum dolor sit amet <span>consectetur</span> adipisicing elit. Quisquam, quae.</p>
 		                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
 		            </article>
 		            <article>
@@ -24,8 +48,8 @@
 		            </article>
 		            <p>direktes Kind einer section</p>
 		        </section>
-		        <section>
-		            <h2>Section 2</h2>
+		        <section id="section2">
+		            <h2 class="blaueSchrift">Section 2</h2>
 		            <article>
 		                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
 		                hallo ballo
@@ -39,9 +63,9 @@
 		        <ol>
 		            <li>item 1
 		                <ul>
-		                    <li>subitem</li>
-		                    <li>subitem</li>
-		                    <li>subitem</li>
+		                    <li>subitem 1</li>
+		                    <li>subitem 2</li>
+		                    <li>subitem 3</li>
 		                </ul>
 		            </li>
 		            <li>item 2</li>
@@ -51,7 +75,7 @@
 		        </ol>
 		    </main>
 		    <aside>
-		        <h2>Aside</h2>
+		        <h2 class="roterHintergrund">Aside</h2>
 		        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
 		        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
 		    </aside>
