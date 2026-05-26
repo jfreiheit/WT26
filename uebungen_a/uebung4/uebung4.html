@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../bs_css/bootstrap.min.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
+  <title>Übung 4</title>
+</head>
+<body class="container">
+  <h1 class="mt-5">Teilnehmerin Registrierung</h1>
+
+  <div class="row">
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="firstNameId" placeholder="">
+        <label for="firstNameId">First name</label>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="lastNameId" placeholder="">
+        <label for="lastNameId">Last name</label>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="emailId" placeholder="">
+        <label for="emailId">E-Mail</label>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="ipAddressId" placeholder="">
+        <label for="ipAddressId">IP Address</label>
+      </div>
+    </div>
+
+  </div>
+
+  <!--
+  <button type="button" class="btn btn-secondary">Abbrechen</button>
+  <button type="button" class="btn btn-success">Registrieren</button>
+  -->
+
+  <div class="row">
+
+    <div class="col d-grid">
+      <button type="button" class="btn btn-secondary">Abbrechen</button>
+    </div>
+
+    <div class="col d-grid">
+      <button type="button" class="btn btn-success" onclick="register()">Registrieren</button>
+    </div>
+
+  </div>
+
+  <script>
+    function register() {
+      console.log('Register-Button geklickt')
+      
+      const inputElementFirstName = document.querySelector('#firstNameId');
+      console.log('inputElementFirstName ', inputElementFirstName)
+      const firstName = inputElementFirstName.value;
+      console.log('firstName : ', firstName)
+
+    }
+  </script>
+</body>
+</html>
