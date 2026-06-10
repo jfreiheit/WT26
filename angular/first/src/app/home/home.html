@@ -1,0 +1,14 @@
+<div id="home">
+<h1>{{ title }}</h1>
+<p>1 + 2 = {{ 1 + 2 }} </p>
+<button [disabled]="isDisabled" 
+        (click)="changeImg()">zeige {{ buttonname }} </button>
+<br />
+
+<button (click)="smaller()">-</button>
+<img  [src]="bildQuelle" 
+      alt="HTW Berlin" 
+      [style.width.px]="groesse"/>
+<button (click)="bigger()">+</button>
+</div>
+

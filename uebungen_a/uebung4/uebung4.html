@@ -14,28 +14,34 @@
 
     <div class="col-12 col-md-6 col-xl-3">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="firstNameId" placeholder="">
+        <input type="text" class="form-control" id="firstNameId" placeholder="Vorname">
         <label for="firstNameId">First name</label>
+        <div class="valid-feedback">
+          Toll!
+        </div>
+        <div class="invalid-feedback">
+          Vorname erforderlich!
+        </div>
       </div>
     </div>
 
     <div class="col-12 col-md-6 col-xl-3">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="lastNameId" placeholder="">
+        <input type="text" class="form-control" id="lastNameId" placeholder="Nachname">
         <label for="lastNameId">Last name</label>
       </div>
     </div>
 
     <div class="col-12 col-md-6 col-xl-3">
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="emailId" placeholder="">
+        <input type="email" class="form-control" id="emailId" placeholder="E-Mail">
         <label for="emailId">E-Mail</label>
       </div>
     </div>
 
     <div class="col-12 col-md-6 col-xl-3">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="ipAddressId" placeholder="">
+        <input type="text" class="form-control" id="ipAddressId" placeholder="IP-Adresse">
         <label for="ipAddressId">IP Address</label>
       </div>
     </div>
@@ -59,15 +65,61 @@
 
   </div>
 
+  <h2 class="mt-5">Eingegebene Werte</h2>
+
+  <ul class="list-group" id="werteListe">
+
+  </ul>
+
   <script>
     function register() {
-      console.log('Register-Button geklickt')
+      event.preventDefault();
+      console.log('Register-Button geklickt');
       
-      const inputElementFirstName = document.querySelector('#firstNameId');
-      console.log('inputElementFirstName ', inputElementFirstName)
-      const firstName = inputElementFirstName.value;
-      console.log('firstName : ', firstName)
+      const inputElementFirstName = document.querySelector('#firstNameId'); //input#firstNameId (als JS-Objekt)
+      console.log('inputElementFirstName ', inputElementFirstName);
+      const firstName = inputElementFirstName.value;                        // eingebener Text in input#firstNameId
+      console.log('firstName : ', firstName);
 
+      const allInputs = document.querySelectorAll('input');                 // alle 4 input-Elemente als Array (NodeList)
+      console.log('allInputs : ', allInputs);
+
+      const outputList = document.querySelector('#werteListe');             //ul#werteListe als JS-Objekt
+      outputList.innerHTML = "";                                               // ul leeren
+
+      let inputOk = true;
+      for(index = 0; index < allInputs.length; index++)
+      {
+        console.log((index + 1) + ". value : " + allInputs[index].value);
+        if(allInputs[index].value == "")
+        {
+          inputOk = false;
+          // keine Eingabe in allInputs[index]
+          allInputs[index].classList.add('is-invalid');
+          allInputs[index].classList.remove('is-valid');
+        }
+        else
+        {
+          // Eingabe in allInputs[index]
+          allInputs[index].classList.add('is-valid');
+          allInputs[index].classList.remove('is-invalid');
+          outputList.innerHTML += `<li class="list-group-item"> ${allInputs[index].placeholder} : ${allInputs[index].value} </li>`;
+        }
+      }
+
+      const headline = document.querySelector('h2');
+      if(inputOk)
+      {
+        headline.textContent = "Eingegebene Werte";
+        headline.style.color = "green";
+        outputList.style.display = "block"
+      }
+      else
+      {
+        headline.textContent = "Bitte alle Felder ausfüllen!";
+        headline.style.color = "red";
+        outputList.style.display = "none"
+      }
     }
   </script>
 </body>
