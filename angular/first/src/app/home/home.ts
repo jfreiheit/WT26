@@ -1,15 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Memberservice } from '../shared/memberservice';
+import { Member } from '../shared/member';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [ ],
+  imports: [ RouterLink ],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 
 
-export class Home {
+export class Home implements OnInit {
 
   title = "Hallo FIW!";
   isDisabled = false;
@@ -19,7 +21,18 @@ export class Home {
   wh = true;
   groesse = 100;
   buttonname = "Wilhelminhof"
+  members: Member[] = []
+  id = '';
   private myservice = inject(Memberservice)
+  private route = inject(ActivatedRoute)
+
+
+  async ngOnInit(): Promise<void> {
+    this.members = await this.myservice.getMembers()
+    this.id = this.route.snapshot.params['id'];
+    console.log(' in home : ' , this.members)
+    console.log(' aktuelle id : ', this.id)
+  }
 
   changeImg(): void {
     if(this.wh) {

@@ -10,5 +10,14 @@
       alt="HTW Berlin" 
       [style.width.px]="groesse"/>
 <button (click)="bigger()">+</button>
-</div>
 
+
+<ul>
+@for(member of members; track $index; let idx = $index)
+{
+      <li>{{ member.firstname + " " + member.lastname }} <a routerLink="/home/{{idx}}">{{ $index }}</a></li>
+}
+</ul>
+
+
+</div>
