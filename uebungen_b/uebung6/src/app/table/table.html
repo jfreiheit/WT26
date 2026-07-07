@@ -1,5 +1,7 @@
+<div class="container">
+<input class="form-control my-3" type="text" [formControl]="search" (input)="filter()"/>
 
-@if(members().length == 0) {
+@if(filterMembers().length == 0) {
   <h3>Keine Einträge vorhanden</h3>
 }
 @else {
@@ -15,11 +17,15 @@
       </tr>
     </thead>
     <tbody>
-      @for(member of members(); track $index) {
+      @for(member of filterMembers(); track $index) {
         <tr>
           <td>{{$index + 1}}</td>
+          <td>{{ member.forename }} </td>
+          <td>{{ member.surname }} </td>
+          <td>{{ member.email }} </td>
         </tr>
       }
     </tbody>
   </table>
 }
+</div>
