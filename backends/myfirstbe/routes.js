@@ -25,11 +25,12 @@ router.post('/', async(req, res) => {
 
 // get one member via id
 router.get('/:id', async(req, res) => {
-    const member = await Member.findOne({ _id: req.params.id });
-    console.log('parameter: ', req.params);
-    if(member) {
+    try {
+        const member = await Member.findOne({ _id: req.params.id });
+        // console.log('parameter name: ', req.params.name);
+        res.status(200)
         res.send(member);
-    } else {
+    } catch {
         res.status(404);
         res.send({
             error: "Member does not exist!"
@@ -40,8 +41,9 @@ router.get('/:id', async(req, res) => {
 // delete one member via id
 router.delete('/:id', async(req, res) => {
     try {
-        await Member.deleteOne({ _id: req.params.id })
-        res.status(204).send()
+        const result = await Member.deleteOne({ _id: req.params.id })
+        res.status(204)
+        res.send()
     } catch {
         res.status(404)
         res.send({ error: "Member does not exist!" })
@@ -49,32 +51,22 @@ router.delete('/:id', async(req, res) => {
 });
 
 // update one member
-router.patch('/:id', async(req, res) => {
+router.put('/:id', async(req, res) => {
     try {
         const member = await Member.findOne({ _id: req.params.id })
 
-        if (req.body.firstname) {
-            member.firstname = req.body.firstname
-        }
+        if (req.body.firstname) member.firstname = req.body.firstname
+        if (req.body.lastname)  member.lastname = req.body.lastname
+        if (req.body.email)     member.email = req.body.email
+        if (req.body.ipaddress) member.ipaddress = req.body.ipaddress
 
-        if (req.body.lastname) {
-            member.lastname = req.body.lastname
-        }
-
-        if (req.body.email) {
-            member.email = req.body.email
-        }
-
-        if (req.body.ipaddress) {
-            member.ipaddress = req.body.ipaddress
-        }
-
-        await Member.updateOne({ _id: req.params.id }, member);
+        await Member.updateOne({ _id: req.params.id }, member)
+        res.status(200)
         res.send(member)
     } catch {
         res.status(404)
         res.send({ error: "Member does not exist!" })
     }
-});
+})
 
 module.exports = router;
